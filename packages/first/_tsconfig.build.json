@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig",
   "compilerOptions": {
-    "outDir": "../../build/second",
+    // "outDir": "../../build/first",
     "rootDir": "src/"
   },
   "exclude": [

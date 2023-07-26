@@ -8,18 +8,19 @@
     "jsx": "react-jsx",
     "outDir": "build",
     "paths": {
-      "@first/*": ["packages/first/src/*"],
-      "@second/*": ["packages/second/src/*"]
+      "@ts-project-test/first/*": ["./packages/first/src/*"],
+      "@ts-project-test/second/*": ["./packages/second/src/*"]
     },
     "inlineSources": true,
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
-    "strictNullChecks": true
+    "strictNullChecks": true,
+    "composite": true
   },
   "references": [
-    { "@first/": "packages/first/src" },
-    { "@second/": "packages/second/src" }
+    { "@ts-project-test/first/": "./packages/first/src" },
+    { "@ts-project-test/second/": "./packages/second/src" }
   ],
   "exclude": ["build", "coverage", "node_modules", "storybook-static/"]
 }

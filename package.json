@@ -2,8 +2,8 @@
   "name": "ts-project-test",
   "version": "1.0.0",
   "scripts": {
-    "tsc": "tsc",
-    "build": "rm -rf build && tsc -p tsconfig.build.json && tsc-alias",
+    "tsc": "rm -rf build && tsc",
+    "build": "rm -rf build && tsc -p tsconfig.build.json && cp packages/first/package.json build/packages/first/src/ && cp packages/second/package.json build/packages/second/src/",
     "build2": "rm -rf build && tsc -b"
   },
   "workspaces": [

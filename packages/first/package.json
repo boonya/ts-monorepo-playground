@@ -1,4 +1,7 @@
 {
   "name": "@ts-project-test/first",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "dependencies": {
+    "@ts-project-test/second": "1.0.0"
+  }
 }
