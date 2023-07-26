@@ -1,0 +1,17 @@
+{
+  "name": "ts-project-test",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "tsc": "tsc",
+    "build": "rm -rf build && tsc -p tsconfig.build.json && tsc-alias"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.0",
+    "tsc-alias": "^1.8.7",
+    "typescript": "^5.0.4"
+  }
+}

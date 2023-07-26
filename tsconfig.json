@@ -1,0 +1,21 @@
+{
+  "extends": "@tsconfig/node20/tsconfig.json",
+  "compilerOptions": {
+    "lib": ["es2023", "dom"],
+    "allowSyntheticDefaultImports": true,
+    "baseUrl": ".",
+    "declaration": true,
+    "jsx": "react-jsx",
+    "outDir": "build",
+    "paths": {
+      "@src/*": ["src/*"]
+    },
+    "inlineSources": true,
+    "removeComments": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictNullChecks": true
+  },
+  "include": ["**/*.ts"],
+  "exclude": ["build", "coverage", "node_modules", "storybook-static/"]
+}
