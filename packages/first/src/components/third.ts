@@ -1,4 +1,4 @@
-import first from '@src/components/first';
+import first from '@first/components/first';
 
 export default (value: string) => {
   const fv = first(value);

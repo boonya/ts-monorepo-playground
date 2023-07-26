@@ -8,7 +8,8 @@
     "jsx": "react-jsx",
     "outDir": "build",
     "paths": {
-      "@src/*": ["src/*"]
+      "@first/*": ["packages/first/src/*"],
+      "@second/*": ["packages/second/src/*"]
     },
     "inlineSources": true,
     "removeComments": true,
@@ -16,6 +17,9 @@
     "strict": true,
     "strictNullChecks": true
   },
-  "include": ["**/*.ts"],
+  "references": [
+    { "@first/": "packages/first/src" },
+    { "@second/": "packages/second/src" }
+  ],
   "exclude": ["build", "coverage", "node_modules", "storybook-static/"]
 }

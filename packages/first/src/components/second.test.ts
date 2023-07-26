@@ -1,4 +1,4 @@
-import second from '@src/components/second';
+import second from '@first/src/components/second';
 
 it('second test', () => {
   const result = second(342);
