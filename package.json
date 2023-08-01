@@ -3,8 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "tsc": "rm -rf build && tsc",
-    "build": "rm -rf build && tsc -p tsconfig.build.json && cp packages/first/package.json build/packages/first/src/ && cp packages/second/package.json build/packages/second/src/",
-    "build2": "rm -rf build && tsc -b"
+    "clean": "rm -rf **/build **/*.tsbuildinfo",
+    "tsc:build": "tsc -b",
+    "tsc:build:both": "npm run build:first && npm run build:second",
+    "tsc:build:first": "tsc -b packages/first/tsconfig.build.json",
+    "tsc:build:second": "tsc -b packages/second/tsconfig.build.json"
   },
   "workspaces": [
     "packages/*"

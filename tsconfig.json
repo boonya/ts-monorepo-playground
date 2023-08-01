@@ -6,7 +6,7 @@
     "baseUrl": ".",
     "declaration": true,
     "jsx": "react-jsx",
-    "outDir": "build",
+    // "outDir": "build",
     "paths": {
       "@ts-project-test/first/*": ["./packages/first/src/*"],
       "@ts-project-test/second/*": ["./packages/second/src/*"]
@@ -19,8 +19,8 @@
     "composite": true
   },
   "references": [
-    { "@ts-project-test/first/": "./packages/first/src" },
-    { "@ts-project-test/second/": "./packages/second/src" }
+    { "@ts-project-test/first/": "./packages/first/src/" },
+    { "@ts-project-test/second/": "./packages/second/src/" }
   ],
   "exclude": ["build", "coverage", "node_modules", "storybook-static/"]
 }
