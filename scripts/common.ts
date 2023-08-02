@@ -39,7 +39,6 @@ export async function readPackage(file: string) {
    * https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
    * https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#json-modules
    */
-  // @ts-ignore
   const pkg = await import(file, {assert: { type: 'json' }});
   return PkgSchema.parse(pkg.default);
 }
@@ -60,7 +59,6 @@ export async function readTsConfig(file: string) {
    * https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
    * https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#json-modules
    */
-  // @ts-ignore
   const pkg = await import(file, {assert: { type: 'json' }});
   return TsConfigShape.parse(pkg.default);
 }
