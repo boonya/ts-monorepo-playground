@@ -1,6 +1,6 @@
 {
   "name": "@boonya/ts-monorepo-playground-first",
-  "version": "1.1.4",
+  "version": "1.0.0",
   "repository": "https://github.com/boonya/ts-monorepo-playground",
   "engines": {
     "node": "^16 || ^18 || ^20",
@@ -10,6 +10,6 @@
     "build": "tsc -b tsconfig.json"
   },
   "dependencies": {
-    "@boonya/ts-monorepo-playground-second": "^1.2.0"
+    "@boonya/ts-monorepo-playground-second": "^1.0.0"
   }
 }
