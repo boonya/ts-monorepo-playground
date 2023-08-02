@@ -21,15 +21,11 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          registry-url: https://npm.pkg.github.com/
-          scope: "@boonya"
       - run: npm ci
       - run: npm run build
       - if: github.event_name == 'release'
         name: "Release"
-        run: |
-          cd build
-          npm publish
+        run: lerna publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - if: github.event_name != 'release'
