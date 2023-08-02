@@ -1,10 +1,5 @@
 #!/usr/bin/env ts-node
-/**
- * https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
- * https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#json-modules
- */
-// @ts-ignore
-import pkg from '../package.json' assert { type: 'json' };
+import {log, exec, getErrorMessage} from './common';
 import childProcess from 'child_process';
 import {promisify} from 'util';
 import yargs from 'yargs';
@@ -12,14 +7,12 @@ import {hideBin} from 'yargs/helpers';
 import {ZodError, z} from 'zod';
 import fs from 'fs/promises';
 import {glob} from 'glob';
-
-export const EnvSchema = z.object({
-	NODE_ENV: z.enum(['development', 'production']).optional().default('production'),
-	PATH: z.string(),
-});
-const env = EnvSchema.parse(process.env);
-const exec = (cmd: string) => promisify(childProcess.exec)(cmd, {env: env});
-const log = console.log;
+/**
+ * https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
+ * https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#json-modules
+ */
+// @ts-ignore
+import pkg from '../package.json' assert { type: 'json' };
 
 const ArgvSchema = z.object({
   verbose: z.boolean().optional().default(false),
