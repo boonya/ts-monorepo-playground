@@ -15,7 +15,7 @@ jobs:
   publish:
     needs: test
     runs-on: ubuntu-latest
-    name: Publishing package 🚀
+    name: Publishing 🚀
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
