@@ -7,8 +7,8 @@
     "npm": "~9.6.7"
   },
   "scripts": {
-    "build": "scripts/build.ts",
-    "lerna": "lerna",
+    "build": "lerna run build",
+    "publish": "lerna publish from-package",
     "prebuild": "rm -rf packages/**/build packages/**/*.tsbuildinfo",
     "typecheck": "tsc -b tsconfig.json"
   },

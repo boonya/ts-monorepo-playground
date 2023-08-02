@@ -4,9 +4,6 @@ on:
   workflow_dispatch:
   workflow_call:
   pull_request:
-  # push:
-  #   branches:
-  #     - main
 
 jobs:
   typechecking:
@@ -17,8 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
+          token: ${{ secrets.GHPR_READ_TOKEN }}
       - name: Test env setup
-        run: |
-          npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
-          npm ci
+        run: npm ci
       - run: npm run typecheck
