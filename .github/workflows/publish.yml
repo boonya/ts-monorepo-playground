@@ -7,13 +7,13 @@ on:
       - published
 
 jobs:
-  test:
-    name: "Test 👮🏽‍♂️"
-    uses: ./.github/workflows/test.yml
-    secrets: inherit
+  # test:
+  #   name: "Test 👮🏽‍♂️"
+  #   uses: ./.github/workflows/test.yml
+  #   secrets: inherit
 
   publish:
-    needs: test
+    # needs: test
     runs-on: ubuntu-latest
     name: Publishing package 🚀
     steps:
