@@ -3,7 +3,7 @@
   "version": "independent",
   "command": {
     "publish": {
-      "directory": "{projectRoot}/build"
+      "directory": "build"
     }
   }
 }
