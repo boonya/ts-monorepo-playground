@@ -2,7 +2,7 @@
   "name": "@ts-project-test/first",
   "version": "1.0.0",
   "scripts": {
-    "build": "tsc -b tsconfig.build.json"
+    "build": "tsc -b tsconfig.json"
   },
   "dependencies": {
     "@ts-project-test/second": "1.0.0"
