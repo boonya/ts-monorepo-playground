@@ -12,7 +12,7 @@
     "lint": "echo 'Not implemented yet ;)'",
     "postbuild": "scripts/postbuild.ts",
     "prebuild": "rm -rf build/ packages/**/build/ packages/**/*.tsbuildinfo",
-    "release": "lerna publish from-package --contents build",
+    "release": "lerna publish from-package --contents build --canary",
     "test": "echo 'Not implemented yet ;)'",
     "typecheck": "tsc -b tsconfig.json",
     "verify": "npm run lint && npm run typecheck && npm run test"
