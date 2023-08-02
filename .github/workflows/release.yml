@@ -7,22 +7,28 @@ on:
       - main
 
 jobs:
-  test:
-    name: "Test 👮🏽‍♂️"
-    uses: ./.github/workflows/test.yml
-    secrets: inherit
-
-  publish:
-    needs: test
+  debug:
+    name: "My Debug"
     runs-on: ubuntu-latest
-    name: Publishing 🚀
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version-file: ".nvmrc"
-      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
-      - run: npm ci
-      - run: npm run release from-package -- --yes --canary
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
+      - run: echo {{github.event_name}}
+
+  # test:
+  #   name: "Test 👮🏽‍♂️"
+  #   uses: ./.github/workflows/test.yml
+  #   secrets: inherit
+
+  # publish:
+  #   needs: test
+  #   runs-on: ubuntu-latest
+  #   name: Publishing 🚀
+  #   steps:
+  #     - uses: actions/checkout@v3
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version-file: ".nvmrc"
+  #     - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
+  #     - run: npm ci
+  #     - run: npm run release -- --yes --canary
+  #       env:
+  #         NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
