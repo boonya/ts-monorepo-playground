@@ -3,6 +3,8 @@
   "compilerOptions": {
     "composite": true,
     "outDir": "../../build/first"
+    // https://www.typescriptlang.org/tsconfig#mapRoot
+    // "mapRoot": ""
   },
   "references": [{ "path": "../second" }]
 }

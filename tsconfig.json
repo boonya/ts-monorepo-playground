@@ -1,21 +1,15 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "lib": ["es2023", "dom"],
     "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
-    "declaration": true,
     "jsx": "react-jsx",
+    "lib": ["es2023", "dom"],
     "noEmit": true,
     "paths": {
       "@ts-project-test/first/*": ["packages/first/src/*"],
       "@ts-project-test/second/*": ["packages/second/src/*"]
-    },
-    "inlineSources": true,
-    "removeComments": true,
-    "sourceMap": true,
-    "strict": true,
-    "strictNullChecks": true
+    }
   },
   "exclude": [
     "**/build/",

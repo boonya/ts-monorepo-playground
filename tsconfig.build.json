@@ -1,7 +1,10 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noEmit": false
+    "inlineSources": true,
+    "noEmit": false,
+    "removeComments": true,
+    "sourceMap": true
   },
   "exclude": [
     "**/*.stories.ts",
