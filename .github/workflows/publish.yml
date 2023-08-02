@@ -1,10 +1,13 @@
 name: Publish 🚚
 
 on:
-  workflow_dispatch:
-  release:
-    types:
-      - published
+  # workflow_dispatch:
+  # release:
+  #   types:
+  #     - published
+  push:
+    branches:
+      - main
 
 jobs:
   # test:
@@ -23,17 +26,7 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm ci
       - run: npm run build
-      - if: github.event_name == 'release'
-        name: "Release"
-        run: lerna publish from-package --registry @ts-monorepo-playground --yes
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
-      - if: github.event_name != 'release'
-        name: "Publishing"
-        run: |
-          cd build
-          version=$(jq -r .version package.json)
-          echo $(jq ".version = \"$version-$GITHUB_SHA\"" package.json) > package.json
-          npm publish --tag $GITHUB_SHA
+      - name: "Release"
+        run: lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
