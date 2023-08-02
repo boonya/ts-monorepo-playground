@@ -1,6 +1,7 @@
 {
   "name": "ts-monorepo-playground",
   "author": "Serhii <boonya> Buinytskyi",
+  "license": "MIT",
   "private": true,
   "engines": {
     "node": "~20.3.1",
