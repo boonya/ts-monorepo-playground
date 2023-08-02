@@ -1,6 +1,5 @@
 {
   "name": "ts-project-test",
-  "version": "1.0.0",
   "scripts": {
     "build": "scripts/build.ts",
     "lerna": "lerna",
