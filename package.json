@@ -10,7 +10,7 @@
   "scripts": {
     "build": "lerna run build",
     "prebuild": "rm -rf packages/**/build packages/**/*.tsbuildinfo",
-    "publish": "lerna publish from-package",
+    "release": "lerna publish from-package",
     "typecheck": "tsc -b tsconfig.json"
   },
   "workspaces": [
