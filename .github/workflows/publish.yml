@@ -10,13 +10,13 @@ on:
       - main
 
 jobs:
-  # test:
-  #   name: "Test 👮🏽‍♂️"
-  #   uses: ./.github/workflows/test.yml
-  #   secrets: inherit
+  test:
+    name: "Test 👮🏽‍♂️"
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
 
   publish:
-    # needs: test
+    needs: test
     runs-on: ubuntu-latest
     name: Publishing package 🚀
     steps:
@@ -29,6 +29,6 @@ jobs:
           npm ci
       - run: npm run build
       - name: "Release"
-        run: lerna publish from-package --no-git-reset --yes
+        run: lerna publish from-package --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
