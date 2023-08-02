@@ -29,6 +29,6 @@ jobs:
           npm ci
       - run: npm run build
       - name: "Release"
-        run: lerna publish from-package --yes
+        run: lerna publish from-package --no-git-reset --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
