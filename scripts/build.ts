@@ -3,6 +3,7 @@
  * https://www.stefanjudis.com/snippets/how-to-import-json-files-in-es-modules-node-js/
  * https://nodejs.org/dist/latest-v18.x/docs/api/esm.html#json-modules
  */
+// @ts-ignore
 import pkg from '../package.json' assert { type: 'json' };
 import childProcess from 'child_process';
 import {promisify} from 'util';

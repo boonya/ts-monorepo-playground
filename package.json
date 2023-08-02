@@ -1,5 +1,11 @@
 {
-  "name": "ts-project-test",
+  "name": "ts-monorepo-playground",
+  "author": "Serhii <boonya> Buinytskyi",
+  "private": true,
+  "engines": {
+    "node": "~20.3.1",
+    "npm": "~9.6.7"
+  },
   "scripts": {
     "build": "scripts/build.ts",
     "lerna": "lerna",
@@ -9,6 +15,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "dependencies": {
+    "zod": "^3.21.4"
+  },
   "devDependencies": {
     "@tsconfig/node20": "^20.1.0",
     "@types/jest": "^29.5.3",
@@ -17,8 +26,5 @@
     "ts-node": "^10.9.1",
     "typescript": "~5.0.4",
     "yargs": "^17.7.2"
-  },
-  "dependencies": {
-    "zod": "^3.21.4"
   }
 }

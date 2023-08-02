@@ -1,10 +1,10 @@
 {
-  "name": "@ts-project-test/first",
+  "name": "@ts-monorepo-playground/first",
   "version": "1.0.0",
   "scripts": {
     "build": "tsc -b tsconfig.json"
   },
   "dependencies": {
-    "@ts-project-test/second": "1.0.0"
+    "@ts-monorepo-playground/second": "1.0.0"
   }
 }

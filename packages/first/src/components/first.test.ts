@@ -1,4 +1,4 @@
-import first from '@ts-project-test/first/components/first';
+import first from '@ts-monorepo-playground/first/components/first';
 
 it('first test', () => {
   const result = first('my value');

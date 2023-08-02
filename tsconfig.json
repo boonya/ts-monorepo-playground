@@ -7,8 +7,8 @@
     "lib": ["es2023", "dom"],
     "noEmit": true,
     "paths": {
-      "@ts-project-test/first/*": ["packages/first/src/*"],
-      "@ts-project-test/second/*": ["packages/second/src/*"]
+      "@ts-monorepo-playground/first/*": ["packages/first/src/*"],
+      "@ts-monorepo-playground/second/*": ["packages/second/src/*"]
     }
   },
   "ts-node": {
