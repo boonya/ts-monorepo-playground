@@ -23,6 +23,7 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
       - run: npm ci
+      - run: npm run build
       - if: github.event_name == 'push'
         name: "Release"
         run: lerna publish from-package --yes
