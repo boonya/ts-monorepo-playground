@@ -25,7 +25,7 @@ jobs:
       - run: npm run build
       - if: github.event_name == 'release'
         name: "Release"
-        run: lerna publish from-package --yes
+        run: lerna publish from-package --registry @ts-monorepo-playground --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
       - if: github.event_name != 'release'
