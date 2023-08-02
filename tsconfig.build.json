@@ -1,15 +1,18 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false
+  },
   "exclude": [
     "**/*.stories.ts",
     "**/*.stories.tsx",
     "**/*.test.ts",
     "**/*.test.tsx",
-    "build/",
-    "coverage/",
-    "docs/",
-    "node_modules/",
-    "scripts/",
-    "storybook-static/"
+    "**/build/",
+    "**/coverage/",
+    "**/docs/",
+    "**/node_modules/",
+    "**/scripts/",
+    "**/storybook-static/"
   ]
 }

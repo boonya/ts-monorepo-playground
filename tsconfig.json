@@ -6,21 +6,23 @@
     "baseUrl": ".",
     "declaration": true,
     "jsx": "react-jsx",
-    // "outDir": "build",
+    "noEmit": true,
     "paths": {
-      "@ts-project-test/first/*": ["./packages/first/src/*"],
-      "@ts-project-test/second/*": ["./packages/second/src/*"]
+      "@ts-project-test/first/*": ["packages/first/src/*"],
+      "@ts-project-test/second/*": ["packages/second/src/*"]
     },
     "inlineSources": true,
     "removeComments": true,
     "sourceMap": true,
     "strict": true,
-    "strictNullChecks": true,
-    "composite": true
+    "strictNullChecks": true
   },
-  "references": [
-    { "@ts-project-test/first/": "./packages/first/src/" },
-    { "@ts-project-test/second/": "./packages/second/src/" }
-  ],
-  "exclude": ["build", "coverage", "node_modules", "storybook-static/"]
+  "exclude": [
+    "**/build/",
+    "**/coverage/",
+    "**/docs/",
+    "**/node_modules/",
+    "**/scripts/",
+    "**/storybook-static/"
+  ]
 }

@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
-    "outDir": "build",
-    // "rootDir": "src"
-  },
+    "composite": true,
+    "outDir": "../../build/second",
+  }
 }

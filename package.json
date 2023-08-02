@@ -2,19 +2,18 @@
   "name": "ts-project-test",
   "version": "1.0.0",
   "scripts": {
-    "tsc": "rm -rf build && tsc",
-    "clean": "rm -rf **/build **/*.tsbuildinfo",
-    "tsc:build": "tsc -b",
-    "tsc:build:both": "npm run build:first && npm run build:second",
-    "tsc:build:first": "tsc -b packages/first/tsconfig.build.json",
-    "tsc:build:second": "tsc -b packages/second/tsconfig.build.json"
+    "tsc": "tsc",
+    "prebuild": "rm -rf build *.tsbuildinfo",
+    "build": "lerna run build"
   },
   "workspaces": [
     "packages/*"
   ],
+  "dependencies": {},
   "devDependencies": {
     "@tsconfig/node20": "^20.1.0",
     "@types/jest": "^29.5.3",
+    "lerna": "^7.1.4",
     "tsc-alias": "^1.8.7",
     "typescript": "~5.0.4"
   }
