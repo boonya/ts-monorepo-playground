@@ -1,6 +1,7 @@
 {
   "name": "@boonya/ts-monorepo-playground-first",
   "version": "1.0.0",
+  "repository": "https://github.com/boonya/ts-monorepo-playground",
   "scripts": {
     "build": "tsc -b tsconfig.json"
   },
