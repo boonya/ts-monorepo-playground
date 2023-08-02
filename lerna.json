@@ -3,7 +3,11 @@
   "version": "independent",
   "command": {
     "publish": {
-      "directory": "build"
+      "directory": "build",
+      "assets": [
+        "README.md",
+        "package.json"
+      ]
     }
   }
 }

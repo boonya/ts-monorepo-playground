@@ -14,7 +14,6 @@
   "scripts": {
     "build": "lerna run build",
     "lint": "echo 'Not implemented yet ;)'",
-    "postbuild": "scripts/postbuild.ts",
     "prebuild": "rm -rf build/ packages/**/build/ packages/**/*.tsbuildinfo",
     "prerelease": "npm run build",
     "release": "lerna publish",
