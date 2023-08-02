@@ -10,18 +10,18 @@ export const EnvSchema = z.object({
 	PATH: z.string(),
 });
 
-const ArgsSchema = z.object({
+const ArgvSchema = z.object({
   verbose: z.boolean().optional().default(false),
 });
 
-type ArgsType = z.infer<typeof ArgsSchema>;
+type Argv = z.infer<typeof ArgvSchema>;
 
 const ENV = EnvSchema.parse(process.env);
 
 const exec = promisify(childProcess.exec);
 const log = console.log;
 
-async function build({verbose}: ArgsType) {
+async function build({verbose}: Argv) {
   const command = 'lerna run build';
   if (verbose) {
 		log(`Command "${command}" is running.`);
@@ -30,7 +30,7 @@ async function build({verbose}: ArgsType) {
 }
 
 async function handler(args = {}) {
-  const argv = ArgsSchema.parse(args);
+  const argv = ArgvSchema.parse(args);
 	log(`Build has started.`);
 	await build(argv);
 	log(`Build has finished.`);
@@ -39,11 +39,9 @@ async function handler(args = {}) {
 yargs(hideBin(process.argv))
 	.command({
 		command: '$0',
-		builder: (command) => {
-			return command
-				.option('verbose', {type: 'boolean'});
-		},
-		handler,
+    handler,
+		builder: (command) => command
+				.option('verbose', {type: 'boolean'}),
 	})
 	.help()
 	.strict(true)

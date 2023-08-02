@@ -2,8 +2,7 @@
   "extends": "../../tsconfig.build.json",
   "compilerOptions": {
     "composite": true,
-    "outDir": "../../build/second",
-    // https://www.typescriptlang.org/tsconfig#mapRoot
-    // "mapRoot": ""
+    "outDir": "build",
+    "rootDir": "src"
   }
 }

@@ -1,1 +1,0 @@
-{"version":3,"file":"hook.js","sourceRoot":"","sources":["hook.ts"],"names":[],"mappings":";;AAAA,kBAAe,CAAC,IAAa,EAAE,EAAE,CAAC,oCAAoC,IAAI,IAAI,GAAG,IAAI,CAAC","sourcesContent":["export default (word?: string) => `I am a hook that returns a word \"${word || '-'}\".`;\n"]}

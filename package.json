@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "build": "scripts/build.ts",
+    "lerna": "lerna",
     "prebuild": "rm -rf build *.tsbuildinfo",
     "typecheck": "tsc -b tsconfig.json"
   },
