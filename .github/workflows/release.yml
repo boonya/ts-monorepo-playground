@@ -11,7 +11,7 @@ jobs:
     name: "My Debug"
     runs-on: ubuntu-latest
     steps:
-      - run: echo {{github.event_name}}
+      - run: echo ${{ github.event_name }}
 
   # test:
   #   name: "Test 👮🏽‍♂️"
