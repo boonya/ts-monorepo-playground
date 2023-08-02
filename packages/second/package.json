@@ -1,6 +1,6 @@
 {
   "name": "@boonya/ts-monorepo-playground-second",
-  "version": "1.0.1-alpha.1",
+  "version": "1.0.1",
   "repository": "https://github.com/boonya/ts-monorepo-playground",
   "engines": {
     "node": "^16 || ^18 || ^20",
