@@ -9,8 +9,10 @@
   },
   "scripts": {
     "build": "lerna run build",
+    "lint": "echo 'Not implemented yet ;)'",
     "prebuild": "rm -rf packages/**/build packages/**/*.tsbuildinfo",
     "release": "lerna publish from-package",
+    "test": "echo 'Not implemented yet ;)'",
     "typecheck": "tsc -b tsconfig.json"
   },
   "workspaces": [

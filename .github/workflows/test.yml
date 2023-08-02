@@ -6,7 +6,19 @@ on:
   pull_request:
 
 jobs:
-  typechecking:
+  lint:
+    name: Linting 🔎
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
+      - run: npm ci
+      - run: npm run lint
+
+  typecheck:
     name: Type checking 🔎
     runs-on: ubuntu-latest
     steps:
@@ -17,3 +29,15 @@ jobs:
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
       - run: npm ci
       - run: npm run typecheck
+
+  test:
+    name: Testing 🔎
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
+      - run: npm ci
+      - run: npm run test
