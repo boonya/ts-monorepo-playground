@@ -1,10 +1,10 @@
 {
-  "name": "@ts-monorepo-playground/first",
+  "name": "@boonya/ts-monorepo-playground-first",
   "version": "1.0.0",
   "scripts": {
     "build": "tsc -b tsconfig.json"
   },
   "dependencies": {
-    "@ts-monorepo-playground/second": "1.0.0"
+    "@boonya/ts-monorepo-playground-second": "1.0.0"
   }
 }

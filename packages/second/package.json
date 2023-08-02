@@ -1,5 +1,5 @@
 {
-  "name": "@ts-monorepo-playground/second",
+  "name": "@boonya/ts-monorepo-playground-second",
   "version": "1.0.0",
   "scripts": {
     "build": "tsc -b tsconfig.json"

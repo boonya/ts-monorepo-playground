@@ -7,8 +7,8 @@
     "lib": ["es2023", "dom"],
     "noEmit": true,
     "paths": {
-      "@ts-monorepo-playground/first/*": ["packages/first/src/*"],
-      "@ts-monorepo-playground/second/*": ["packages/second/src/*"]
+      "@boonya/ts-monorepo-playground-first/*": ["packages/first/src/*"],
+      "@boonya/ts-monorepo-playground-second/*": ["packages/second/src/*"]
     }
   },
   "ts-node": {

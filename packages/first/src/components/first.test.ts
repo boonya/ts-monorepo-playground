@@ -1,4 +1,4 @@
-import first from '@ts-monorepo-playground/first/components/first';
+import first from '@boonya/ts-monorepo-playground-first/components/first';
 
 it('first test', () => {
   const result = first('my value');
