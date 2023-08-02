@@ -23,7 +23,6 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
       - run: npm ci
-      - run: npm run build
       - run: npm run release -- --yes --canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}

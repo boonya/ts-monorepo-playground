@@ -21,9 +21,9 @@ async function copy(outDir: string, workspace: string) {
   });
   await Promise.all(promises);
 
-  const dir = workspace.split('/').pop()
-  console.log('fs.cp', `${workspace}/build`, `${outDir}/${dir}`);
-  await fs.cp(`${workspace}/build`, `${outDir}/${dir}`, {recursive: true});
+  // const dir = workspace.split('/').pop()
+  // console.log('fs.cp', `${workspace}/build`, `${outDir}/${dir}`);
+  // await fs.cp(`${workspace}/build`, `${outDir}/${dir}`, {recursive: true});
 }
 
 async function move(argv: Argv) {
