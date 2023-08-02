@@ -70,9 +70,6 @@ async function main() {
   async function handler(args = {}) {
     try {
       const argv = ArgvSchema.parse(args);
-
-      console.log({argv, args});
-
       log(`Build has started.`);
       await build(argv);
       log(`Build has finished.`);
