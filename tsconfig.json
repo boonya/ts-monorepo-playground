@@ -11,12 +11,13 @@
       "@ts-project-test/second/*": ["packages/second/src/*"]
     }
   },
+  "ts-node": {
+    "transpileOnly": true
+  },
   "exclude": [
     "**/build/",
     "**/coverage/",
-    "**/docs/",
     "**/node_modules/",
-    "**/scripts/",
     "**/storybook-static/"
   ]
 }
