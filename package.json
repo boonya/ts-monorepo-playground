@@ -4,7 +4,7 @@
   "scripts": {
     "build": "scripts/build.ts",
     "lerna": "lerna",
-    "prebuild": "rm -rf build *.tsbuildinfo",
+    "prebuild": "rm -rf packages/**/build packages/**/*.tsbuildinfo",
     "typecheck": "tsc -b tsconfig.json"
   },
   "workspaces": [
@@ -13,6 +13,7 @@
   "devDependencies": {
     "@tsconfig/node20": "^20.1.0",
     "@types/jest": "^29.5.3",
+    "glob": "^10.3.3",
     "lerna": "^7.1.4",
     "ts-node": "^10.9.1",
     "typescript": "~5.0.4",
