@@ -16,6 +16,7 @@
     "lint": "echo 'Not implemented yet ;)'",
     "postbuild": "scripts/postbuild.ts",
     "prebuild": "rm -rf build/ packages/**/build/ packages/**/*.tsbuildinfo",
+    "prerelease": "lerna version --no-private --no-push",
     "release": "lerna publish --contents build",
     "test": "jest",
     "typecheck": "tsc -b tsconfig.json",
