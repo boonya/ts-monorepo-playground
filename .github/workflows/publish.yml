@@ -25,7 +25,7 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - run: |
-          echo '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}' >> .npmrc
+          npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
           npm ci
       - run: npm run build
       - name: "Release"
