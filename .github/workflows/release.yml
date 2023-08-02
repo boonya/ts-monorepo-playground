@@ -1,4 +1,4 @@
-name: Publish 🚚
+name: Release 🚚
 
 on:
   workflow_dispatch:
@@ -21,7 +21,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          token: ${{ secrets.GHPR_READ_TOKEN }}
+          token: '${{ secrets.GHPR_READ_TOKEN }}'
       - run: npm ci
       - run: npm run build
       - name: "Release"

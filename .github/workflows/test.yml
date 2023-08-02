@@ -1,4 +1,4 @@
-name: "Test 👮🏽‍♂️"
+name: Test 👮🏽‍♂️
 
 on:
   workflow_dispatch:
@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-          token: ${{ secrets.GHPR_READ_TOKEN }}
+          token: '${{ secrets.GHPR_READ_TOKEN }}'
       - name: Test env setup
         run: npm ci
       - run: npm run typecheck
