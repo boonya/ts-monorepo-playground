@@ -24,7 +24,9 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm ci
+      - run: |
+          echo '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}' >> .npmrc
+          npm ci
       - run: npm run build
       - name: "Release"
         run: lerna publish from-package --yes
