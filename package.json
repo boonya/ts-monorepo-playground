@@ -21,6 +21,7 @@
     "verify": "npm run lint && npm run typecheck && npm run test"
   },
   "dependencies": {
+    "@changesets/cli": "^2.26.2",
     "@tsconfig/node20": "^20.1.0",
     "lerna": "^7.1.4",
     "typescript": "~5.0.4"

@@ -6,7 +6,7 @@
       "directory": "build",
       "assets": [
         "README.md",
-        "CHANGELOG",
+        "CHANGELOG.md",
         "package.json"
       ]
     }
