@@ -9,7 +9,7 @@ on:
 
 jobs:
   test:
-    name: "Test 👮🏽‍♂️"
+    name: Test
     uses: ./.github/workflows/test.yml
     secrets: inherit
 
