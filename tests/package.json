@@ -1,5 +1,5 @@
 {
-  "name": "tests",
+  "name": "@ts-monorepo-playground/tests",
   "private": true,
   "dependencies": {
     "@types/jest": "^29.5.3",
