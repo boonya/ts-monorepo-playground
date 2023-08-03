@@ -4,25 +4,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      preid:
-        description: "Prerelease identifier."
-        required: true
-        default: alpha
-        type: choice
-        options:
-          - alpha
-          - beta
-      distTag:
-        description: "Helping consumers avoid automatically upgrading to prerelease-quality code."
-        required: true
-        default: test
-        type: choice
-        options:
-          - test
-          - dev
-          - prerelease
 
 jobs:
   test:
@@ -36,27 +17,14 @@ jobs:
     name: Publishing 🚀
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
       - run: npm ci
       - run: npm run build
-      - if: github.event_name == 'push'
-        name: "Release"
+      - name: "Release"
         run: |
           lerna publish from-package --yes
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - if: github.event_name == 'workflow_dispatch'
-        name: "Pre-Release"
-        run: |
-          lerna publish --yes \
-            --canary \
-            --preid ${{ inputs.preid }} \
-            --dist-tag ${{ inputs.distTag }} \
-            --pre-dist-tag ${{ inputs.distTag }} \
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
