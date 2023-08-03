@@ -1,9 +1,6 @@
-name: Pre-Release 🚚
+name: Snapshot Release
 
 on:
-  # push:
-  #   branches:
-  #     - main
   workflow_dispatch:
     inputs:
       distTag:
@@ -19,13 +16,13 @@ on:
           - test
 
 jobs:
-  # test:
-  #   name: Test
-  #   uses: ./.github/workflows/test.yml
-  #   secrets: inherit
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
 
   publish:
-    # needs: test
+    needs: test
     runs-on: ubuntu-latest
     name: Publishing 🚀
     steps:
@@ -38,11 +35,12 @@ jobs:
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
       - run: npm ci
       - run: npm run build
-      - uses: changesets/action@v1
-        with:
-          version: changeset version --snapshot
-          publish: changeset publish
-          # --snapshot ${{ inputs.distTag }}
-          # --tag ${{ inputs.distTag }}
+      - name: "Pre-Release"
+        run: |
+          lerna publish --yes \
+            --canary \
+            --preid ${{ inputs.distTag }} \
+            --dist-tag ${{ inputs.distTag }} \
+            --pre-dist-tag ${{ inputs.distTag }} \
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
