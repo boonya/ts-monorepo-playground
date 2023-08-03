@@ -6,6 +6,9 @@
     "node": "^16 || ^18 || ^20",
     "npm": "^8 || ^9"
   },
+  "publishConfig": {
+    "tag": "alpha"
+  },
   "scripts": {
     "build": "tsc -b tsconfig.json"
   },

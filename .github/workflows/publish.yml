@@ -23,6 +23,7 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
       - run: npm ci
+      - run: npm run build
       - if: github.event_name == 'push'
         name: "Release"
         run: lerna publish from-package --yes
@@ -30,6 +31,6 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
       - if: github.event_name == 'workflow_dispatch'
         name: "Pre-Release"
-        run: lerna publish --yes --canary
+        run: lerna publish --yes --canary --force-publish --dist-tag alpha
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
