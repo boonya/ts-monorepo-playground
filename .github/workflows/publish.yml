@@ -7,6 +7,7 @@ on:
   workflow_dispatch:
     inputs:
       preid:
+        description: "Prerelease identifier."
         required: true
         default: alpha
         type: choice
@@ -14,17 +15,14 @@ on:
           - alpha
           - beta
       distTag:
+        description: "Helping consumers avoid automatically upgrading to prerelease-quality code."
         required: true
         default: test
         type: choice
         options:
           - test
           - dev
-      minor:
-        description: "Increase minor version if selected, otherwise - a patch."
-        required: true
-        default: false
-        type: boolean
+          - prerelease
 
 jobs:
   test:
@@ -51,6 +49,7 @@ jobs:
         run: |
           lerna publish from-package --yes \
             --dist-tag alpha
+            --pre-dist-tag alpha
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
       - if: github.event_name == 'workflow_dispatch'
@@ -61,6 +60,5 @@ jobs:
             --preid ${{ inputs.preid }} \
             --dist-tag ${{ inputs.distTag }} \
             --pre-dist-tag ${{ inputs.distTag }} \
-            --force-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
