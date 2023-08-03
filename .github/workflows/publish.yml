@@ -1,10 +1,19 @@
 name: Publish 🚚
 
 on:
-  workflow_dispatch:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      preid:
+        description: "1.0.1-alpha.0 or 1.0.1-beta.0"
+        required: true
+        default: 'alpha'
+        type: choice
+        options:
+          - alpha
+          - beta
 
 jobs:
   test:
