@@ -1,3 +1,3 @@
 # second package from ts-monorepo-playground
 
-Test?
+You can install it by running `npm i -S @boonya/ts-monorepo-playground-second@prerelease`
