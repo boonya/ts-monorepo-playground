@@ -9,7 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo "registry_package: ${{ toJSON(github.event.registry_package) }};"
+          echo "npm_metadata: ${{ toJSON(github.event.registry_package.package_version.npm_metadata) }} .\n"
+          echo "name: ${{ toJSON(github.event.registry_package.package_version.npm_metadata.name) }} .\n"
+          echo "version: ${{ toJSON(github.event.registry_package.package_version.npm_metadata.version) }} .\n"
+          echo "registry_package: ${{ toJSON(github.event.registry_package) }} .\n"
+
   # build:
   #   runs-on: ubuntu-latest
   #   permissions:
