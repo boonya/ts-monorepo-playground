@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  # test:
+  #   name: Test
+  #   uses: ./.github/workflows/test.yml
+  #   secrets: inherit
+
+  release:
+    # needs: test
+    runs-on: ubuntu-latest
+    name: Release
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
+      - run: npm ci
+      - run: npm run build
+      - uses: changesets/action@v1
+        # with:
+        #   version: yarn version
+        #   publish: yarn release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
