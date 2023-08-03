@@ -14,7 +14,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
       - run: npm ci
       - run: npm run lint
 
@@ -26,7 +26,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
       - run: npm ci
       - run: npm run typecheck
 
@@ -38,6 +38,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GHPR_READ_TOKEN }}'
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
       - run: npm ci
       - run: npm run test
