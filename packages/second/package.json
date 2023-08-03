@@ -1,6 +1,6 @@
 {
   "name": "@boonya/ts-monorepo-playground-second",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "repository": "https://github.com/boonya/ts-monorepo-playground",
   "homepage": "https://github.com/boonya/ts-monorepo-playground/tree/main/packages/second#readme",
   "engines": {
