@@ -14,7 +14,7 @@
   "scripts": {
     "build": "lerna run build",
     "lint": "echo 'Not implemented yet ;)'",
-    "prebuild": "rm -rf build/ packages/**/build/ packages/**/*.tsbuildinfo",
+    "prebuild": "rm -rf packages/**/build/ packages/**/*.tsbuildinfo",
     "release": "lerna publish",
     "test": "jest",
     "typecheck": "tsc -b tsconfig.json",
