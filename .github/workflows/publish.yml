@@ -34,7 +34,10 @@ jobs:
         # run: |
         #   lerna publish --yes --canary --dist-tag alpha
         #   lerna version --conventional-commits --create-release github
-        run: lerna version prerelease --yes --conventional-commits --create-release github
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          lerna version prerelease --yes --conventional-commits --create-release github
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
           GH_TOKEN: ${{ secrets.GHPR_READ_TOKEN }}
