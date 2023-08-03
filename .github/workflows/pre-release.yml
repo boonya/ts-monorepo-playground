@@ -40,8 +40,8 @@ jobs:
       - run: npm run build
       - uses: changesets/action@v1
         with:
-          version: changeset version --snapshot
-          publish: changeset publish
+          version: npx changeset version --snapshot
+          publish: npx changeset publish
           # --snapshot ${{ inputs.distTag }}
           # --tag ${{ inputs.distTag }}
         env:
