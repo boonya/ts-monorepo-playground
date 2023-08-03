@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.2
+
+### Patch Changes
+
+- Test again
+
 ## 1.1.1
 
 ### Patch Changes
