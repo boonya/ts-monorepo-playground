@@ -47,7 +47,8 @@ jobs:
       - if: github.event_name == 'push'
         name: "Release"
         run: |
-          lerna publish from-package --yes
+          lerna publish from-package --yes \
+            --dist-tag prerelease
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
       - if: github.event_name == 'workflow_dispatch'
