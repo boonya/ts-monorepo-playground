@@ -4,6 +4,11 @@ on:
   workflow_dispatch:
   workflow_call:
   pull_request:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
   lint:
