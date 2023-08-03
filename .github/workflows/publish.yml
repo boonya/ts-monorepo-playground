@@ -43,7 +43,9 @@ jobs:
       - run: npm run build
       - if: github.event_name == 'push'
         name: "Release"
-        run: lerna publish from-package --yes
+        run: |
+          lerna publish from-package --yes \
+            --dist-tag alpha
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
       - if: github.event_name == 'workflow_dispatch'
@@ -52,6 +54,7 @@ jobs:
           lerna publish --yes \
             --canary \
             --preid ${{ inputs.preid }} \
+            --dist-tag ${{ inputs.preDistTag }} \
             --pre-dist-tag ${{ inputs.preDistTag }} \
             --force-publish
         env:
