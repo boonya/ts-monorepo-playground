@@ -6,6 +6,11 @@ on:
       - main
   workflow_dispatch:
     inputs:
+      minor:
+        description: "Increase minor version if selected, otherwise - a patch."
+        required: true
+        default: false
+        type: boolean
       preid:
         required: true
         default: alpha
@@ -13,7 +18,7 @@ on:
         options:
           - alpha
           - beta
-      preDistTag:
+      distTag:
         required: true
         default: test
         type: choice
@@ -54,8 +59,8 @@ jobs:
           lerna publish --yes \
             --canary \
             --preid ${{ inputs.preid }} \
-            --dist-tag ${{ inputs.preDistTag }} \
-            --pre-dist-tag ${{ inputs.preDistTag }} \
+            --dist-tag ${{ inputs.distTag }} \
+            --pre-dist-tag ${{ inputs.distTag }} \
             --force-publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GHPR_RW_TOKEN }}
