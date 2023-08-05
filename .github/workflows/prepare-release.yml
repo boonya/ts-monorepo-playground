@@ -1,0 +1,32 @@
+name: Release
+
+on:
+  workflow_dispatch: # 👈 For debugging purpose
+  pull_request_target:
+    types:
+      - opened
+    branches:
+      - release/**
+
+jobs:
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+
+  release:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 # 👈 Required to retrieve git history
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
+      - run: npm ci
+      - run: |
+          lerna version prerelease --yes \
+            --no-git-tag-version \
+            --create-release github
