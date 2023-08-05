@@ -4,17 +4,20 @@
 repo:
   - "*"
 
-"@boonya/ts-monorepo-playground-first":
-  - package/first/**
-
-"@boonya/ts-monorepo-playground-second":
-  - package/second/**
-
-"@boonya/ts-monorepo-playground-third":
-  - package/third/**
-
 test:
   - "**/*.test.js"
 
 "github-workflow":
   - ".github/workflows/*"
+
+documentation:
+  - "**/*.md"
+
+"@boonya/ts-monorepo-playground-first":
+  - packages/first/**
+
+"@boonya/ts-monorepo-playground-second":
+  - packages/second/**
+
+"@boonya/ts-monorepo-playground-third":
+  - packages/third/**
