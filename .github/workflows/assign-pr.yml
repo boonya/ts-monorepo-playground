@@ -1,13 +1,9 @@
 name: Assign PR
 
 on:
-  workflow_dispatch: # 👈 For debugging purpose
-  workflow_call:
-  # pull_request:
-  #   types:
-  #     - opened
-  #     - reopened
-  #     - synchronize
+  pull_request:
+    types:
+      - opened
 
 permissions:
   pull-requests: write

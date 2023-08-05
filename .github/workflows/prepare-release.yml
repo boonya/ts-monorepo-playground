@@ -1,33 +1,32 @@
 name: Release
 
 on:
-  workflow_dispatch: # 👈 For debugging purpose
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
+    # types:
+    #   - opened
     branches:
-      - 'release/**'
+      - main
 
 jobs:
-  # test:
-  #   name: Test
-  #   uses: ./.github/workflows/test.yml
-  #   secrets: inherit
-
   release:
-    # needs: test
+    if: startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
         with:
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0 # 👈 Required to retrieve git history
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
-      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
-      - run: npm ci
-      - run: |
-          lerna version prerelease --yes \
+      # - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
+      # - run: npm ci
+      - name: Release
+        run: |
+          git config user.email me@boonya.info
+          git config user.name bot
+          npx lerna version patch --yes \
+            --conventional-commits \
             --create-release github
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
