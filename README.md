@@ -1,4 +1,4 @@
-# Monorepo release test
+# [WIP !!!] Monorepo release test
 
 ## Prepare Release
 
@@ -14,7 +14,7 @@ D --> E(Setup NodeJs)
 E --> F(Install dependencies)
 F --> G(Bump versions)
 F --> H(Create changelogs)
-F --> H(Commit & Push)
+H --> I(Commit & Push)
 ```
 
 ## Pre-Release
