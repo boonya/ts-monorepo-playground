@@ -28,4 +28,4 @@ jobs:
             --conventional-commits
             --create-release github
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
