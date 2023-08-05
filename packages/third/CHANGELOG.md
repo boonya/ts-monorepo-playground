@@ -6,9 +6,3 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 ## 1.0.1-alpha.0 (2023-08-05)
 
 **Note:** Version bump only for package @boonya/ts-monorepo-playground-third
-
-
-
-
-
-# Changelog

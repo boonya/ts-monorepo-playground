@@ -1,1 +1,1 @@
-console.log('I am placeholder of the second package ;)')
+console.log('I am placeholder of the second package ;) Just something.')
