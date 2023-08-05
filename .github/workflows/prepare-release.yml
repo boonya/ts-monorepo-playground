@@ -25,7 +25,7 @@ jobs:
         run: |
           git config user.email me@boonya.info
           git config user.name bot
-          npx lerna version prerelease --yes \
+          npx lerna version patch --yes \
             --conventional-commits \
             --create-release github
         env:
