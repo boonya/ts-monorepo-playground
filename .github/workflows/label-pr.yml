@@ -1,10 +1,12 @@
 name: "Label PR"
 
 on:
-  pull_request:
-    types:
-      - opened
-      - synchronize
+  workflow_dispatch: # 👈 For debugging purpose
+  workflow_call:
+  # pull_request:
+  #   types:
+  #     - opened
+  #     - synchronize
 
 permissions:
   contents: read
