@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  run_if:
+  release:
     if: startsWith(github.head_ref, 'release/')
     runs-on: ubuntu-latest
     steps:
@@ -22,6 +22,7 @@ jobs:
       - run: npm ci
       - run: |
           lerna version prerelease --yes \
+            --conventional-commits
             --create-release github
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
