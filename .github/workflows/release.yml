@@ -1,0 +1,21 @@
+name: Release
+
+on:
+  workflow_dispatch:
+  release:
+    types:
+      - published
+
+jobs:
+  test:
+    name: "Test 👮🏽‍♂️"
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
+
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    name: Publishing package 🚀
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
