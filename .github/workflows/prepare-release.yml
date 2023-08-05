@@ -1,7 +1,7 @@
 name: Release
 
 on:
-  workflow_dispatch: # 👈 For debugging purpose
+  # workflow_dispatch: # 👈 For debugging purpose
   pull_request:
     types:
       - opened
