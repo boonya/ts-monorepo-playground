@@ -21,11 +21,12 @@ jobs:
           node-version-file: ".nvmrc"
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
       - run: npm ci
-      - run: |
+      - name: Release
+        run: |
           git config user.email me@boonya.info
           git config user.name bot
           lerna version prerelease --yes \
-            --conventional-commits
+            --conventional-commits \
             --create-release github
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
