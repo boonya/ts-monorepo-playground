@@ -1,0 +1,23 @@
+# Read more https://github.com/actions/labeler
+
+# Add 'repo' label to any root file changes
+repo:
+  - "*"
+
+test:
+  - "**/*.test.js"
+
+"github-workflow":
+  - ".github/workflows/*"
+
+documentation:
+  - "**/*.md"
+
+"@boonya/ts-monorepo-playground-first":
+  - packages/first/**
+
+"@boonya/ts-monorepo-playground-second":
+  - packages/second/**
+
+"@boonya/ts-monorepo-playground-third":
+  - packages/third/**
