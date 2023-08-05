@@ -13,6 +13,5 @@ permissions:
 jobs:
   assign:
     runs-on: ubuntu-latest
-    name: Assign PR to autor
     steps:
       - uses: toshimaru/auto-author-assign@v1.6.2
