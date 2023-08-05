@@ -17,19 +17,19 @@ jobs:
     name: Linting 🔎
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/setup-env.yml
+      - uses: ./.github/actions/setup-env.yml
       - run: npm run lint
 
   typecheck:
     name: Type checking 🔎
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/setup-env.yml
+      - uses: ./.github/actions/setup-env.yml
       - run: npm run typecheck
 
   test:
     name: Testing 🔎
     runs-on: ubuntu-latest
     steps:
-      - uses: .github/actions/setup-env.yml
+      - uses: ./.github/actions/setup-env.yml
       - run: npm run test
