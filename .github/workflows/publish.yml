@@ -1,23 +1,24 @@
-# name: Publish
+name: Publish
 
-# on:
-#   push:
-#     branches:
-#       - main
-#     paths:
-#       - packages/*/package.json
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/*/package.json
 
-# jobs:
-#   test:
-#     name: Test
-#     uses: ./.github/workflows/test.yml
-#     secrets: inherit
+jobs:
+  test:
+    name: Test
+    uses: ./.github/workflows/test.yml
+    secrets: inherit
 
-#   publish:
-#     needs: test
-#     runs-on: ubuntu-latest
-#     name: Publishing 🚀
-#     steps:
+  publish:
+    needs: test
+    runs-on: ubuntu-latest
+    name: Publishing 🚀
+    steps:
+      - run: echo "Nothing yet"
 #       - uses: actions/checkout@v3
 #       - uses: actions/setup-node@v3
 #         with:
