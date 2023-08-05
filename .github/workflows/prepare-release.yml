@@ -1,19 +1,15 @@
 name: Release
 
 on:
-  # workflow_dispatch: # 👈 For debugging purpose
   pull_request:
-    # branches:
-    #   - 'release/**'
+    # types:
+    #   - opened
+    branches:
+      - main
 
 jobs:
-  # test:
-  #   name: Test
-  #   uses: ./.github/workflows/test.yml
-  #   secrets: inherit
-
-  release:
-    # needs: test
+  run_if:
+    if: startsWith(github.head_ref, 'releases/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -27,3 +23,5 @@ jobs:
       - run: |
           lerna version prerelease --yes \
             --create-release github
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
