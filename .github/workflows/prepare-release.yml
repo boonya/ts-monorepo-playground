@@ -30,5 +30,4 @@ jobs:
       - run: npm ci
       - run: |
           lerna version prerelease --yes \
-            --no-git-tag-version \
             --create-release github
