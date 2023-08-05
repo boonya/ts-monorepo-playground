@@ -8,7 +8,7 @@ on:
       - reopened
       - synchronize
     branches:
-      - "release/**"
+      - 'release/**'
 
 jobs:
   # test:
