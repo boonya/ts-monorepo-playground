@@ -3,10 +3,6 @@ name: Release
 on:
   # workflow_dispatch: # 👈 For debugging purpose
   pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
     branches:
       - 'release/**'
 
