@@ -1,8 +1,8 @@
-# Monorepo release test
+# [WIP !!!] Monorepo release test
 
 ## Prepare Release
 
-If you create a branch called `release/*` with `main` branch as a target it will automatically trigger [release workflow](.github/workflows/release.yml).
+If you create a PR from the branch called `release/*` with `main` branch as a target it will automatically trigger [prepare-release workflow](.github/workflows/prepare-release.yml).
 
 ```mermaid
 flowchart LR
@@ -12,9 +12,12 @@ B(Type Check) --> D
 C(Test) --> D(Checkout git branch)
 D --> E(Setup NodeJs)
 E --> F(Install dependencies)
-F --> G(Bump versions)
-F --> H(Create changelogs)
-F --> H(Commit & Push)
+F --> G{Is there any package.json version changed?}
+G --> |no|H(Bump versions / only changed packages)
+H --> I(Create changelogs / only changed packages)
+I --> J(Commit & Push / to the same branch)
+G --> |yes|K(Draft github release)
+J --> K
 ```
 
 ## Pre-Release

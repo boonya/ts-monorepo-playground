@@ -1,6 +1,6 @@
 {
   "name": "@boonya/ts-monorepo-playground-third",
-  "version": "1.0.2",
+  "version": "1.0.0",
   "repository": "https://github.com/boonya/ts-monorepo-playground",
   "homepage": "https://github.com/boonya/ts-monorepo-playground/tree/main/packages/third#readme",
   "engines": {
@@ -11,7 +11,7 @@
     "build": "tsc -b tsconfig.json"
   },
   "dependencies": {
-    "@boonya/ts-monorepo-playground-first": "^1.0.2",
-    "@boonya/ts-monorepo-playground-second": "^1.0.2"
+    "@boonya/ts-monorepo-playground-first": "^1.0.0",
+    "@boonya/ts-monorepo-playground-second": "^1.0.0"
   }
 }
