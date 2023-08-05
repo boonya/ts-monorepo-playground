@@ -26,6 +26,7 @@ jobs:
           git config user.email me@boonya.info
           git config user.name bot
           lerna version prerelease --yes \
+            --no-git-tag-version \
             --conventional-commits \
             --create-release github
         env:
