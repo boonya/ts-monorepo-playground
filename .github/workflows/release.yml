@@ -6,12 +6,12 @@ on:
       - published
 
 jobs:
-  test:
-    uses: ./.github/workflows/test.yml
-    secrets: inherit
+  # test:
+  #   uses: ./.github/workflows/test.yml
+  #   secrets: inherit
 
   publish:
-    needs: test
+    # needs: test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,10 +19,13 @@ jobs:
         with:
           node-version-file: ".nvmrc"
       - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
-      - run: npm ci
-      - run: npm run build
-      - name: "Publishing package(s) 🚀"
-        run: |
-          lerna publish from-package --yes
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run: |
+          echo ${{ toJSON(github.event.release) }}
+      # - run: npm ci
+      # - run: npm run build
+      # - name: "Publish package(s) 🚀"
+      #   run: |
+      #     lerna publish from-package --yes \
+      #       --dist-tag
+      #   env:
+      #     NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
