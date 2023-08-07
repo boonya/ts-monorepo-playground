@@ -16,6 +16,9 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: release-drafter/release-drafter@v5
+      - uses: release-drafter/release-drafter@v5.21.1
+        with:
+          name: ${{ github.sha }}
+          tag: ${{ github.sha }}
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
