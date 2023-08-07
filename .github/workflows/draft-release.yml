@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - packages/*/package.json
-  pull_request: # Debug purpose
+  # pull_request: # Debug purpose
 
 permissions:
   contents: read
