@@ -7,6 +7,9 @@
     "node": "^16 || ^18 || ^20",
     "npm": "^8 || ^9"
   },
+  "keywords": [
+    "test1"
+  ],
   "scripts": {
     "build": "tsc -b tsconfig.json"
   }
