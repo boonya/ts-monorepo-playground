@@ -4,7 +4,8 @@
   "repository": "https://github.com/boonya/ts-monorepo-playground",
   "homepage": "https://github.com/boonya/ts-monorepo-playground/tree/main/packages/first#readme",
   "keywords": [
-    "test1"
+    "test1",
+    "test2"
   ],
   "engines": {
     "node": "^16 || ^18 || ^20",
