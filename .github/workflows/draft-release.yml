@@ -19,17 +19,16 @@ jobs:
         with:
           style: lowerCase
           separator: "-"
+          length: 3
           seed: ${{ github.sha }}
         id: generated-tag
       - uses: boonya/gh-action-name-generator@main
         with:
           style: capital
           separator: " "
+          length: 3
           seed: ${{ github.sha }}
         id: generated-name
-      - run: |
-          echo "Generated tag is \"${{ toJson(steps.generated-tag.outputs) }}\"."
-          echo "Generated name is \"${{ toJson(steps.generated-name.outputs) }}\"."
       - uses: release-drafter/release-drafter@v5.21.1
         with:
           name: "${{ steps.generated-name.outputs.name }}"
