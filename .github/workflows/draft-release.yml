@@ -15,14 +15,14 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      - uses: boonya/gh-action-name-generator@main
+      - uses: boonya/gh-action-name-generator@v1
         with:
           style: lowerCase
           separator: "-"
           length: 3
           seed: ${{ github.sha }}
         id: generated-tag
-      - uses: boonya/gh-action-name-generator@main
+      - uses: boonya/gh-action-name-generator@v1
         with:
           style: capital
           separator: " "
