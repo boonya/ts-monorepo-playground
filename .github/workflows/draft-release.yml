@@ -19,22 +19,20 @@ jobs:
         with:
           style: lowerCase
           separator: "-"
-          length: 3
           seed: ${{ github.sha }}
-        id: generated-tag
+        id: generatedTag
       - uses: boonya/gh-action-name-generator@main
         with:
           style: capital
-          separator: " "
-          length: 3
+          separator: ' '
           seed: ${{ github.sha }}
-        id: generated-name
+        id: generatedName
       - run: |
-          echo "Generated name is ${{ steps.generated-name.outputs.name }}."
-          echo "Generated tag is ${{ steps.generated-tag.outputs.name }}."
+          echo "Generated name is ${{ steps.generatedName.outputs.name }}."
+          echo "Generated tag is ${{ steps.generatedTag.outputs.name }}."
       - uses: release-drafter/release-drafter@v5.21.1
         with:
-          name: ${{ steps.generated-name.outputs.name }}
-          tag: ${{ steps.generated-tag.outputs.name }}
+          name: "${{ steps.generatedName.outputs.name }}"
+          tag: "${{ steps.generatedTag.outputs.name }}"
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
