@@ -1,0 +1,33 @@
+name: Release
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  # test:
+  #   uses: ./.github/workflows/test.yml
+  #   secrets: inherit
+
+  publish:
+    # needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version-file: ".nvmrc"
+      - run: npm set '//npm.pkg.github.com/:_authToken=${{ secrets.GH_TOKEN }}'
+      - run: |
+          echo "release: ${{ toJSON(github.event.release) }};"
+          echo "is prerelease: ${{ github.event.release.prerelease }};"
+          echo "is draft: ${{ github.event.release.draft }};"
+      - run: npm ci
+      - run: npm run build
+      - name: "Publish package(s) 🚀"
+        run: |
+          lerna publish from-package --yes \
+            --dist-tag ${{ github.event.release.prerelease && 'prerelease' || 'latest' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
