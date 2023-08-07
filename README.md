@@ -1,32 +1,40 @@
 # [WIP !!!] Monorepo release test
 
-## Prepare Release
+## Canary Release
 
-If you create a PR from the branch called `release/*` with `main` branch as a target it will automatically trigger [prepare-release workflow](.github/workflows/prepare-release.yml).
+You are able to publish packages as canary release by triggering [canary-release workflow](.github/workflows/canary-release.yml) manually.
 
 ```mermaid
 flowchart LR
 
-A(Lint) --> D
-B(Type Check) --> D
-C(Test) --> D(Checkout git branch)
-D --> E(Setup NodeJs)
-E --> F(Install dependencies)
-F --> G{Is there any package.json version changed?}
-G --> |no|H(Bump versions / only changed packages)
-H --> I(Create changelogs / only changed packages)
-I --> J(Commit & Push / to the same branch)
-G --> |yes|K(Draft github release)
-J --> K
+A(Checkout git branch) --> B(Setup NodeJs)
+B --> C(Install dependencies)
+C --> D(Build packages)
+D --> E(Publish all of them with canary dist-tag and version suffix.)
 ```
 
-## Pre-Release
+## Draft Release
 
-???
+Once you've merged something into the `main` branch and at least one package.json were changed, new release should be drafted automatically. Thanks to [draft-release workflow](.github/workflows/draft-release.yml).
 
-## Canary Release
+```mermaid
+flowchart LR
 
-????
+A(Randon release name and tag generated) --> B(Release drafted using values generated above)
+```
+
+## Release
+
+Once release is published, all updated packages are going to be built and published as well. All this done by [release workflow](.github/workflows/release.yml).
+
+```mermaid
+flowchart LR
+
+A(Checkout git branch) --> B(Setup NodeJs)
+B --> C(Install dependencies)
+C --> D(Build packages)
+D --> E(Publish packages with updated versions.)
+```
 
 ## How it's built
 

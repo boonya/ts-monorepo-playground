@@ -1,15 +1,16 @@
-name: Release
+name: Canary Release
 
 on:
-  release:
-    types:
-      - published
+  workflow_dispatch:
 
 jobs:
   publish:
     runs-on: ubuntu-latest
+    name: Publishing 🚀
     steps:
       - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - uses: actions/setup-node@v3
         with:
           node-version-file: ".nvmrc"
@@ -17,7 +18,8 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: |
-          lerna publish from-package --yes \
-            --dist-tag ${{ github.event.release.prerelease && 'prerelease' || 'latest' }}
+          lerna publish --canary --yes \
+            --preid canary \
+            --pre-dist-tag canary
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
