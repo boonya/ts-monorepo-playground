@@ -1,0 +1,21 @@
+name: Draft a Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - packages/*/package.json
+  pull_request: # Debug purpose
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
