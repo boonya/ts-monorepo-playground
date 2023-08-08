@@ -11,7 +11,7 @@
     "build": "tsc -b tsconfig.json"
   },
   "dependencies": {
-    "@boonya/ts-monorepo-playground-first": "^1.0.0",
-    "@boonya/ts-monorepo-playground-second": "^1.0.0"
+    "@boonya/ts-monorepo-playground-first": "^1.1.0",
+    "@boonya/ts-monorepo-playground-second": "^1.0.1"
   }
 }
